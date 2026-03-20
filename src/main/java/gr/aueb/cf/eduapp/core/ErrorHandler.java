@@ -104,7 +104,7 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
         };
 
         return ResponseEntity
-                .status(HttpStatus.UNAUTHORIZED)            // 401 Unauthorized
+                .status(HttpStatus.UNAUTHORIZED)
                 .body(new ErrorResponseDTO(errorCode, e.getMessage()));
     }
 
@@ -113,7 +113,7 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<ErrorResponseDTO> handleAccessDeniedException(AccessDeniedException e) {
         log.warn("Access denied. Message={}", e.getMessage());
         return ResponseEntity
-                .status(HttpStatus.FORBIDDEN)       // 403 Forbidden
+                .status(HttpStatus.FORBIDDEN)
                 .body(new ErrorResponseDTO("ACCESS_DENIED", e.getMessage()));
     }
 
